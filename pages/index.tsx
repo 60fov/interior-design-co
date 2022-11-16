@@ -1,11 +1,14 @@
-import Header from "../components/Header";
-import Ideals from "../components/Ideals";
+import { ImageContextProvider } from '../components/ImageContext';
+
+import Header from "../components/Header"
+import Ideals from "../components/Ideals"
+
 
 export default function Home() {
   return (
-    <>
-      <Header/>
-      <Ideals/>
-    </>
+    <ImageContextProvider>
+      <Header />
+      <Ideals />
+    </ImageContextProvider>
   )
 }
