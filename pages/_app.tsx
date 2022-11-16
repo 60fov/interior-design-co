@@ -1,6 +1,19 @@
 import '../styles/globals.css'
 import type { AppProps } from 'next/app'
 
+import localFont from '@next/font/local'
+
+const optima = localFont({
+  src: '../public/Optima.woff',
+  variable: "--font-optima"
+});
+
+
 export default function App({ Component, pageProps }: AppProps) {
-  return <Component {...pageProps} />
+  return (
+    <main className={`${optima.variable} font-sans`}>
+      <Component {...pageProps} />
+    </main>
+
+  )
 }

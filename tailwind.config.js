@@ -7,6 +7,9 @@ module.exports = {
   ],
   theme: {
     extend: {
+      fontFamily: {
+        sans: ['var(--font-optima)', ...fontFamily.sans]
+      },
       colors: {
         tan: {
           100: '#FFF7E9',
