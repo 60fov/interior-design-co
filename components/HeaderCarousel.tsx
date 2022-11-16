@@ -1,17 +1,9 @@
-import space_joy_01 from "../public/images/space_joy_01.jpg"
-import space_joy_02 from "../public/images/space_joy_02.jpg"
-import space_joy_03 from "../public/images/space_joy_03.jpg"
-import space_joy_04 from "../public/images/space_joy_04.jpg"
-import space_joy_05 from "../public/images/space_joy_05.jpg"
-import space_joy_06 from "../public/images/space_joy_06.jpg"
-import space_joy_07 from "../public/images/space_joy_07.jpg"
-import space_joy_08 from "../public/images/space_joy_08.jpg"
-import space_joy_09 from "../public/images/space_joy_09.jpg"
-
-import { useRef, useEffect, useState } from 'react'
-import Image from 'next/image'
+import { useRef, useEffect, useState, useContext } from 'react'
 import { motion, useMotionValue, useTransform, useAnimationFrame } from 'framer-motion'
 
+import Image from 'next/image'
+
+import ImageContext from '../components/ImageContext';
 /*
  TODO: 
     various mouse controls (drag, hover scroll speed, etc.)
@@ -23,18 +15,7 @@ type HeaderCarouselProps = {
 }
 
 export default function HeaderCarousel({ speed = 50 }: HeaderCarouselProps) {
-
-    const images = [
-        space_joy_01,
-        space_joy_02,
-        space_joy_03,
-        space_joy_04,
-        space_joy_05,
-        space_joy_06,
-        space_joy_07,
-        space_joy_08,
-        space_joy_09,
-    ]
+    const images = useContext(ImageContext);
 
     const html = images.map(imageData => (
         <Image
