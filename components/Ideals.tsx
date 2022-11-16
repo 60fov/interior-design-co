@@ -28,8 +28,8 @@ const Slider = ({ slides }: SliderProps) => {
         <>
             {
                 slides.map(slide => (
-                    <div key={slide.text} className="w-2/3 mx-auto py-20">
-                        <p className="font-serif w-full text-7xl">{slide.text}</p>
+                    <div key={slide.text} className="w-3/5 mx-auto py-20">
+                        <p className="font-header w-full tracking-tighter text-7xl">{slide.text}</p>
                         <div>
                             {/* TODO: use context to provide image data */}
                             <Image src={""} alt="showcase of interior design" />

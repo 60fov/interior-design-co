@@ -65,6 +65,7 @@ export default function HeaderCarousel({ speed = 50 }: HeaderCarouselProps) {
                 className=""
                 style={{ x: nx }}
             >
+                {/* TODO: images sizes https://nextjs.org/docs/api-reference/next/image#sizes */}
                 <div ref={imageGroup} className="inline-flex w-auto gap-5 h-[200px] md:h-[350px] lg:h-[400px] xl:h-[500px]">
                     {html}
                     {html}
