@@ -12,6 +12,12 @@ import { useRef, useEffect, useState } from 'react'
 import Image from 'next/image'
 import { motion, useMotionValue, useTransform, useAnimationFrame } from 'framer-motion'
 
+/*
+ TODO: 
+    various mouse controls (drag, hover scroll speed, etc.)
+    portait landscape (maybe)
+ */
+
 type HeaderCarouselProps = {
     speed?: number
 }
@@ -59,7 +65,7 @@ export default function HeaderCarousel({ speed = 50 }: HeaderCarouselProps) {
                 className=""
                 style={{ x: nx }}
             >
-                <div ref={imageGroup} className="h-[500px] inline-flex w-auto gap-5">
+                <div ref={imageGroup} className="inline-flex w-auto gap-5 h-[200px] md:h-[350px] lg:h-[400px] xl:h-[500px]">
                     {html}
                     {html}
                 </div>
