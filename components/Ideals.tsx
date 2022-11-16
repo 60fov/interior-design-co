@@ -1,5 +1,6 @@
 import { useContext } from 'react'
 import Image from 'next/image'
+import { motion } from 'framer-motion'
 
 import ImageContext from './ImageContext'
 
@@ -15,7 +16,7 @@ export default function Ideals({ }) {
     return (
         <div className="w-full bg-white py-12">
             <Slider slides={sliderData} />
-            {/* TODO: slider dots */}
+            {/* TODO: slider + dots */}
         </div>
     )
 }
@@ -34,17 +35,38 @@ const Slider = ({ slides }: SliderProps) => {
             {
                 slides.map(slide => (
                     <div key={slide.text} className="w-3/5 mx-auto py-20">
-                        <p className="relative font-header w-11/12 mx-auto tracking-tighter z-20 text-7xl">{slide.text}</p>
-                        <div className="relative w-full z-10 h-96 -mt-6">
+                        <motion.p
+                            className="relative font-header w-11/12 mx-auto tracking-tighter z-20 text-7xl"
+                        >
+                            {slide.text}
+                        </motion.p>
+
+                        <div className="relative w-full z-10 h-[420px] -mt-6">
                             {/* TODO: use context to provide image data */}
-                            <Image
-                                className="absolute w-7/12 h-auto max-h-full"
-                                src={images[slide.imageIndices[0]]}
-                                alt="showcase of interior design" />
-                            <Image
-                                className="absolute top-[10%] right-0 w-1/2 h-auto"
-                                src={images[slide.imageIndices[1]]}
-                                alt="showcase of interior design" />
+                            <motion.div
+                                className="absolute w-7/12"
+                                initial={{ x: -100, opacity: 0 }}
+                                whileInView={{ x: 0, opacity: 1 }}
+                                viewport={{ amount: 'some', once: true }}
+                                transition={{ duration: 0.5, ease: 'circOut'}}
+                            >
+                                <Image
+                                    className="h-full"
+                                    src={images[slide.imageIndices[0]]}
+                                    alt="showcase of interior design" />
+                            </motion.div>
+                            <motion.div
+                                className="absolute w-1/2 top-[10%] right-0"
+                                initial={{ x: 50, opacity: 0 }}
+                                whileInView={{ x: 0, opacity: 1 }}
+                                viewport={{ amount: 'all', once: true }}
+                                transition={{ duration: 0.5, ease: 'circOut'}}
+                            >
+                                <Image
+                                    className="w-full h-auto"
+                                    src={images[slide.imageIndices[1]]}
+                                    alt="showcase of interior design" />
+                            </motion.div>
                         </div>
                     </div>
                 ))

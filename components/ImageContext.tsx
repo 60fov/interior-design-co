@@ -7,6 +7,7 @@ QUESTION: is there a better way?
     - cant use dynamic imports for next image CLS or whatever (?)
     - js macros where? (s/o Nim, macros op)
     - tbh I don't feel like this is terrible 🤷
+    - is getStaticProps meaningfully different? (performance / ergonomics)
 */
 import space_joy_01 from "../public/images/space_joy_01.jpg"
 import space_joy_02 from "../public/images/space_joy_02.jpg"
